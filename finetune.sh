@@ -3,7 +3,7 @@
 # Assign the arguments to variables
 DATA_PATH="data/infer.json"
 IMAGE_PATH="data/flickr30k-images/"
-OUTPUT_DIR="TinyLLaVA-1.5B-finetune-i"
+OUTPUT_DIR="ECIMM"
 
 deepspeed tinyllava/train/train.py \
     --deepspeed scripts/tiny_llava/zero3.json \
