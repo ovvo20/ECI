@@ -1,18 +1,17 @@
 #!/bin/bash
 
 # Assign the arguments to variables
-DATA_PATH="/root/autodl-tmp/Project/TinyLLaVABench/data/ref_to_gt.json"
-IMAGE_PATH="/root/autodl-tmp/Project/TinyLLaVABench/data/flickr30k-images/"
-OUTPUT_DIR="/root/autodl-tmp/Project/TinyLLaVABench/TinyLLaVA-3.1B-lora"
+DATA_PATH="data/infer.json"
+IMAGE_PATH="data/flickr30k-images/"
+OUTPUT_DIR="TinyLLaVA-1.5B-finetune-i"
 
 deepspeed tinyllava/train/train.py \
-    --deepspeed /root/autodl-tmp/Project/TinyLLaVABench/scripts/tiny_llava/zero3.json \
-    --lora_enable True --lora_r 32 --lora_alpha 64 \
-    --model_name_or_path /root/autodl-tmp/Project/TinyLLaVABench/TinyLLaVA-3.1B \
-    --version phi \
+    --deepspeed scripts/tiny_llava/zero3.json \
+    --model_name_or_path TinyLLaVA-1.5B \
+    --version v1 \
     --data_path $DATA_PATH \
     --image_folder $IMAGE_PATH\
-    --vision_tower /root/autodl-tmp/Project/TinyLLaVABench/TinyLLaVA-3.1B-SigLIP \
+    --vision_tower TinyLLaVA-1.5B-SigLIP \
     --mm_projector_type mlp2x_gelu \
     --mm_vision_select_layer -2 \
     --mm_use_im_start_end False \
@@ -21,14 +20,14 @@ deepspeed tinyllava/train/train.py \
     --group_by_modality_length False \
     --fp16 True \
     --output_dir $OUTPUT_DIR \
-    --num_train_epochs 2 \
-    --per_device_train_batch_size 8 \
+    --num_train_epochs 4 \
+    --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 4 \
     --gradient_accumulation_steps 2 \
     --evaluation_strategy "no" \
     --save_strategy "steps" \
-    --save_steps 50000 \
-    --save_total_limit 1 \
+    --save_steps 30 \
+    --save_total_limit 3 \
     --learning_rate 2e-5 \
     --weight_decay 0. \
     --warmup_ratio 0.03 \

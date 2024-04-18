@@ -1,8 +1,8 @@
-LLM_VERSION=microsoft/phi-2
+LLM_VERSION=/root/autodl-tmp/Project/TinyLLaVABench/TinyLLaVA-3.1B
 VT_VERSION=google/siglip-so400m-patch14-384
 
-DATA_PATH=/path/to/your/blip_laion_cc_sbu_558k.json
-IMAGE_PATH=/path/to/your/images
+DATA_PATH=/root/autodl-tmp/Project/TinyLLaVABench/data/ref_to_gt.json
+IMAGE_PATH=/root/autodl-tmp/Project/TinyLLaVABench/data/flickr30k-images
 VT_VARIANT="${VT_VERSION#*/}"
 LLM_VARIANT="${LLM_VERSION#*/}"
 
@@ -20,7 +20,7 @@ deepspeed tinyllava/train/train.py \
     --tune_mm_mlp_adapter True \
     --tune_entire_model False \
     --fp16 True \
-    --output_dir ./checkpoints/tiny-llava-base-"${LLM_VARIANT}"-"${VT_VARIANT}"-pretrain \
+    --output_dir ./checkpoints/tiny-llava-base-pretrain \
     --num_train_epochs 1 \
     --per_device_train_batch_size 32 \
     --per_device_eval_batch_size 4 \
@@ -40,4 +40,4 @@ deepspeed tinyllava/train/train.py \
     --dataloader_num_workers 15 \
     --lazy_preprocess True \
     --report_to wandb \
-    --run_name tiny-llava-base-pretrain-"${LLM_VARIANT}"-"${VT_VARIANT}"
+    --run_name tiny-llava-base-pretrain
