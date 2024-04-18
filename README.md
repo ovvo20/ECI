@@ -1,4 +1,4 @@
-# Experiment
+# ECI
 
 ## Requirements and Installation
 
@@ -12,8 +12,8 @@ cd ECI
 
 2. Install Package
 ```Shell
-conda create -n tinyllava python=3.10 -y
-conda activate tinyllava
+conda create -n eci python=3.10 -y
+conda activate eci
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
@@ -105,12 +105,9 @@ python generate.py
 python evaluate.py
 ```
 
+## Results
+
 |        | Bleu_1 | Bleu_2 | Bleu_3 | Bleu_4 | METEOR | ROUGE_L | CIDEr | SPICE |
 |--------|--------|--------|--------|--------|--------|---------|-------|-------|
 | TIger  | 38.3   | 28.1   | 21.1   | 14.9   |        | 42.7    | 148.3 | 32.0  |
 | ECIMM  | 40.3   | 30     | 22.5   | 15.8   | 19.5   | 42.8    | 152.6 | 32.7  |
-
-
-
-## Results
-
