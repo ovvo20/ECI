@@ -43,36 +43,27 @@ pip install -e .
 
 ## Dataset
 
-### Relationship
+### Relationship Data
 
-1. To create this dataset, we use the prompt:
+1. To create the relationship data, we use the prompt:
 ```
 Create a detailed list in English of all the relationships and actions involving objects depicted in the image. For each pair of objects, describe their spatial relationship using simple structures such as 'object next to object', 'object above object', 'object behind object', or 'object in front of object'. Additionally, include descriptions of actions being performed by people, animals, or changes in the environment. For instance, if the image includes a cat sitting under a tree and a bird flying toward the tree, your list should include 'cat sitting under the tree' and 'bird flying toward the tree'. Ensure that each described relationship and action between any two objects or entities is unique and clearly stated.
 ```
 
-2. Dataset format:
+2. Data Sample:
+
+![beach](https://github.com/ovvo20/ECI/assets/122522813/6b3a0b74-73b6-4682-98c7-eade6da3dbb8)
+
 ```
-[
-    {
-        "id": "2198511848",
-        "image": "2198511848.jpg",
-        "conversations": [
-            {
-                "from": "human",
-                "value": "<image>\nreference: downhill skier on slolum course, based on the relationship between the objects in the image and the structure of the reference, summarize a caption of the image."
-            },
-            {
-                "from": "gpt",
-                "value": "relationship: snowboarder in the air above the snow-covered slope, snow-covered ramp below the snowboarder, snowboard attached to the snowboarder's feet, blue sky above the snowboarder, clouds in the sky above the snowboarder and slope, trees on the slope in the background behind the snowboarder, snowy mountain in the far background behind the snowboarder, shadow of the snowboarder cast on the snow-covered slope, snow being displaced by the ramp's edge\ncaption: snowboarder flying through the air"
-            }
-        ]
-    },...
-]
+woman riding on a toy horse cart, toy horse cart on the sidewalk, bicycle parked near the beach, plastic bag on the ground near the bicycle, person walking on the beach, small buildings along the beach, flags flying above the beach, beach next to the ocean
 ```
 
 ### Inference Chain
 1. To create this dataset, we use the nltk tool to extract the nouns and verbs from the relationship
 2. Dataset format:
+
+![talking](https://github.com/ovvo20/ECI/assets/122522813/7a955a7c-3d62-4ace-90e7-99fe4c03bff6)
+
 ```
 [
     {
