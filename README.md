@@ -1,4 +1,4 @@
-# ECI
+# ECR
 
 ## Requirements and Installation
 
@@ -7,13 +7,13 @@ We recommend the requirements as follows.
 1. Clone this repository and navigate to LLaVA folder
 ```bash
 git clone https://github.com/ovvo20/ECI.git
-cd ECI
+cd ECR
 ```
 
 2. Install Package
 ```Shell
 conda create -n eci python=3.10 -y
-conda activate eci
+conda activate ecr
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
@@ -39,7 +39,7 @@ pip install -e .
 - [TinyLLaVA-1.5B]
 
 ### Our Models
- - [ECIMM]
+ - [ECRMM]
 
 ## Dataset
 
